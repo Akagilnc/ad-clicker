@@ -12,7 +12,7 @@ get_daily_ip_addresses.get_ip_address()
 targetUrl = "https://www.google.com"
 
 # 代理服务器
-ip_addresses = json.load(open('./ip.json')).get('data')
+ip_addresses = json.load(open('./ip.json', encoding='utf-8')).get('data')
 for info in ip_addresses:
     proxyHost = info.get('ip')
     proxyPort = info.get('port')
