@@ -32,7 +32,7 @@ for info in ip_addresses:
     # with webdriver.Firefox() as driver:
     # Open URL
     fireFoxOptions = webdriver.FirefoxOptions()
-    # fireFoxOptions.headless = True
+    fireFoxOptions.headless = True
     try:
         with webdriver.Firefox(options=fireFoxOptions) as browser:
             browser.implicitly_wait(5)
