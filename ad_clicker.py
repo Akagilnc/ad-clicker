@@ -18,7 +18,7 @@ for info in ip_addresses:
     proxyPort = info.get('port')
     proxyMeta = "{}:{}".format(proxyHost, proxyPort)
     print(proxyMeta)
-    proxyMeta = "127.0.0.1:1081"
+    # proxyMeta = "127.0.0.1:1081"
     # options = ChromeOptions()
     # options.add_argument('--proxy-server={}'.format(proxyMeta))
     webdriver.DesiredCapabilities.FIREFOX['proxy'] = {
@@ -37,8 +37,8 @@ for info in ip_addresses:
         with webdriver.Firefox(options=fireFoxOptions) as browser:
             browser.implicitly_wait(5)
             print('open google')
-            # browser.get(targetUrl)
-            browser.get('https://www.expressvpn.com/what-is-my-ip')
+            browser.get(targetUrl)
+            # browser.get('https://www.expressvpn.com/what-is-my-ip')
             search_input_element = browser.find_element_by_css_selector('.gLFyf')
             time.sleep(random.randint(1, 5))
             print('enter keyword')
@@ -57,4 +57,5 @@ for info in ip_addresses:
     except Exception as inst:
         print(type(inst))
         print(inst)
+        print(browser.title)
         browser.quit()
