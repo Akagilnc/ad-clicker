@@ -55,3 +55,6 @@ for info in ip_addresses:
     except Exception as inst:
         print(type(inst))
         print(inst)
+        browser.quit()
+    finally:
+        browser.quit()
