@@ -23,7 +23,8 @@ for info in ip_addresses:
     # options.add_argument('--proxy-server={}'.format(proxyMeta))
     webdriver.DesiredCapabilities.FIREFOX['proxy'] = {
         "httpProxy": proxyMeta,
-        # "sslProxy": proxyMeta,
+        "ftpProxy": proxyMeta,
+        "sslProxy": proxyMeta,
         "proxyType": "MANUAL",
 
     }
