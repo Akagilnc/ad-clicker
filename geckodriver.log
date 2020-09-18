@@ -265,3 +265,6 @@ Exiting due to channel error.
 Exiting due to channel error.
 [GFX1-]: Receive IPC close with reason=AbnormalShutdown
 Exiting due to channel error.
+1600396305392	geckodriver	INFO	Listening on 127.0.0.1:58847
+1600396306399	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/var/folders/bc/l1mg42rn7f5g67gy_nph2m_40000gn/T/rust_mozprofile6wSr9G"
+*** You are running in headless mode.
