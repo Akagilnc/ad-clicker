@@ -48,7 +48,7 @@ for info in ip_addresses:
             time.sleep(random.uniform(6, 20))
             print('find website')
             href = ['https://tattootktx.com/', 'https://tknumbing.com/'][random.randint(0, 1)]
-            ad_element = browser.find_element_by_xpath('//data-pcu[@href="{}"]'.format(href))
+            ad_element = browser.find_element_by_xpath('//a[@data-pcu="{}"]'.format(href))
             time.sleep(random.uniform(3, 10))
             print('go to website {}'.format(href))
             ad_element.click()
