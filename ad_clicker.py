@@ -58,4 +58,3 @@ for info in ip_addresses:
         print(type(inst))
         print(inst)
         print(browser.title)
-        browser.quit()
