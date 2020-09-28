@@ -38,22 +38,22 @@ for info in ip_addresses:
             browser.implicitly_wait(10)
             print('open google')
             browser.get(targetUrl)
-            # browser.get('https://www.expressvpn.com/what-is-my-ip')
             search_input_element = browser.find_element_by_css_selector('.gLFyf')
             time.sleep(random.uniform(2, 8))
             print('enter keyword')
-            for letter in 'eyecolens':
+            for letter in 'TKTX':
                 search_input_element.send_keys(letter)
                 time.sleep(random.uniform(0.2, 2))
             search_input_element.send_keys(Keys.ENTER)
             time.sleep(random.uniform(6, 20))
             print('find website')
-            ad_element = browser.find_element_by_xpath('//a[@href="http://eyecolens.com/"]')
+            href = ['https://tattootktx.com/', 'https://tknumbing.com/'][random.randint(0, 1)]
+            ad_element = browser.find_element_by_xpath('//data-pcu[@href="{}"]'.format(href))
             time.sleep(random.uniform(3, 10))
-            print('go to website')
+            print('go to website {}'.format(href))
             ad_element.click()
             time.sleep(random.uniform(10, 30))
-            print('finished with {}'.format(proxyMeta))
+            print('finished with {} with {}'.format(proxyMeta, href))
     except Exception as inst:
         print(type(inst))
         print(inst)
