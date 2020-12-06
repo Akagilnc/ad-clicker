@@ -64,7 +64,7 @@ for proxyMeta in ip_addresses:
         for href in hrefs:
             is_page2 = False
             print('find website {}'.format(href))
-            ad_elements = browser.find_elements_by_xpath('//a[@data-pcu="contains(text(), {})"]'.format(href))
+            ad_elements = browser.find_elements_by_xpath('//a[@data-pcu="{}"]'.format(href))
             time.sleep(random.uniform(3, 20))
             if len(ad_elements) == 0:
                 page2 = browser.find_element_by_css_selector('#pnnext')
