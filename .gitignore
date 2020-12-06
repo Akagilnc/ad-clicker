@@ -143,4 +143,4 @@ cython_debug/
 geckodriver.log
 .venv
 ip.json
-
+ip.txt
