@@ -60,6 +60,7 @@ for proxyMeta in ip_addresses:
 
         time.sleep(random.uniform(5, 10))
         browser.close()
+        browser.quit()
         time.sleep(random.uniform(53, 126))
     except Exception as inst:
         print(inst)
