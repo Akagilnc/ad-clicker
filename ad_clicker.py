@@ -4,10 +4,9 @@ import json
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-# ????
 targetUrl = "https://www.google.com"
 i = 0
-# ?????
+
 ip_addresses = open('ip.txt', encoding='utf_8')
 hrefs = ['https://tktxusshop.com/,http://www.tktxusshop.com/',
          'https://tknumb.com/',
