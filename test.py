@@ -15,7 +15,7 @@ fireFoxOptions.headless = False
 
 
 # proxyMeta = '127.0.0.1:1081'
-for proxyMeta in ip_addresses:
+for proxyMeta in ip_addresses[:20]:
     print(proxyMeta)
     is_clicked = False
     # proxyMeta = '127.0.0.1:7890'
