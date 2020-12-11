@@ -10,8 +10,10 @@ i = 0
 # 代理服务器
 ip_addresses = open('ip.txt', encoding='utf_8')
 hrefs = ['https://tktxinuk.com/',
+         'https://www.officialtktx.com/,http://officialtktx.com/',
          'https://tktxdirect.com/',
-         'https://tktxink.com/']
+         'https://tktxink.com/',
+         'http://www.realtktxuk.co.uk/,https://realtktxuk.co.uk/']
 fireFoxOptions = webdriver.FirefoxOptions()
 fireFoxOptions.headless = True
 # chrome_options = webdriver.ChromeOptions()
