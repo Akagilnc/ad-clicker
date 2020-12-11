@@ -50,7 +50,7 @@ for proxyMeta in ip_addresses:
             test_elements = browser.find_elements_by_link_text(title)
             if len(test_elements) > 0:
                 test_elements[0].click()
-                "finished"
+                print("finished")
                 break
             else:
                 next_element = browser.find_element_by_css_selector('.a-last > a:nth-child(1)')
