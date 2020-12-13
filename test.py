@@ -61,16 +61,17 @@ for proxyMeta in ip_addresses:
                     break
                 else:
                     next_element = browser.find_element_by_css_selector('.a-last > a:nth-child(1)')
+
                     print("go to next page")
                     next_element.click()
                     time.sleep(random.uniform(5, 8))
 
             time.sleep(random.uniform(5, 10))
             browser.quit()
-            time.sleep(random.uniform(53, 126))
+
         except Exception as inst:
             print(inst)
             browser.quit()
-            time.sleep(random.uniform(10, 20))
         finally:
             i += 1
+            time.sleep(random.uniform(245, 280))
