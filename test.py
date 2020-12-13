@@ -9,6 +9,7 @@ i = 0
 ip_addresses = open('ip.txt', encoding='utf_8')
 fireFoxOptions = webdriver.FirefoxOptions()
 fireFoxOptions.headless = False
+success = 0
 
 # proxyMeta = '127.0.0.1:1081'
 for proxyMeta in ip_addresses:
@@ -21,7 +22,8 @@ for proxyMeta in ip_addresses:
         is_clicked = False
         # proxyMeta = '127.0.0.1:7890'
         ip = proxyMeta.split(':')[0]
-        title = 'Topical Anesthetic Tattoo Cream 10g for Tattoos Semi Permanent US 3-6 Working Days'
+
+        title = 'Topical Anesthetic Tattoo Numbing Cream 10g for Tattoos Semi Permanent US 3-6 Working Days'
         webdriver.DesiredCapabilities.FIREFOX['proxy'] = {
             "httpProxy": proxyMeta,
             "ftpProxy": proxyMeta,
@@ -50,9 +52,12 @@ for proxyMeta in ip_addresses:
             time.sleep(random.uniform(4, 10))
             for i in range(10):
                 test_elements = browser.find_elements_by_link_text(title)
+
                 if len(test_elements) > 0:
                     test_elements[0].click()
                     print("finished")
+                    success += 1
+                    print('clicked {} times'.format(success))
                     break
                 else:
                     next_element = browser.find_element_by_css_selector('.a-last > a:nth-child(1)')
