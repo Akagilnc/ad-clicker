@@ -8,7 +8,7 @@ targetUrl = "https://www.amazon.com"
 i = 0
 ip_addresses = open('ip.txt', encoding='utf_8')
 fireFoxOptions = webdriver.FirefoxOptions()
-fireFoxOptions.headless = False
+fireFoxOptions.headless = True
 success = 0
 
 # proxyMeta = '127.0.0.1:1081'
