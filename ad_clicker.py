@@ -1,6 +1,7 @@
 import time
 import random
 import json
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
@@ -15,7 +16,9 @@ hrefs = ['https://tktxinuk.com/',
          'https://tktxink.com/',
          'http://www.realtktxuk.co.uk/,https://realtktxuk.co.uk/']
 fireFoxOptions = webdriver.FirefoxOptions()
-fireFoxOptions.headless = True
+fireFoxOptions.headless = False
+
+
 # chrome_options = webdriver.ChromeOptions()
 # chrome_options.add_argument('--proxy-server={}'.format("2001:470:1:518::c928:63a6:443"))
 
@@ -23,9 +26,9 @@ fireFoxOptions.headless = True
 def agree_click(browser_input):
     agree_ele = browser_input.find_elements_by_css_selector('.bErdLd')
     if len(agree_ele) > 0:
-        iframe = browser_input.find_element_by_css_selector('#cnsw > iframe:nth-child(1)')
+        iframe = browser_input.find_element_by_css_selector('#cnsw > iframe')
         browser_input.switch_to.frame(iframe)
-        browser_input.implicitly_wait(1)
+        browser_input.implicitly_wait(5)
         agree_btn = browser_input.find_elements_by_css_selector('#introAgreeButton')
         if len(agree_btn) > 0:
             agree_btn[0].click()
@@ -37,7 +40,7 @@ not_found_list = []
 for proxyMeta in ip_addresses:
     print(proxyMeta)
     is_clicked = False
-    # proxyMeta = '127.0.0.1:7890'
+    proxyMeta = '127.0.0.1:1081'
     ip = proxyMeta.split(':')[0]
     webdriver.DesiredCapabilities.FIREFOX['proxy'] = {
         "httpProxy": proxyMeta,
@@ -59,10 +62,36 @@ for proxyMeta in ip_addresses:
             search_input_element.send_keys(letter)
             time.sleep(random.uniform(0.2, 3))
         search_input_element.send_keys(Keys.ENTER)
-        time.sleep(random.uniform(4, 40))
+        time.sleep(random.uniform(10, 250))
         #
         agree_click(browser)
-        #
+        # click image ads
+        image_ads_div = browser.find_elements_by_css_selector("#tvcap")
+        image_ads_div_side = browser.find_elements_by_css_selector('.cu-container')
+        if len(image_ads_div) > 0:
+            image_ads_div = image_ads_div[0]
+        if len(image_ads_div_side) > 0:
+            image_ads_div = image_ads_div_side[0]
+        image_ads = image_ads_div.find_elements_by_tag_name('a')
+        for image_ad in image_ads:
+            href = image_ad.get_attribute('href')
+            if 'www.tktxdirect.com' in href or 'www.tktxinuk.com' in href or 'www.txtkink.com' in href:
+                if 'vplaurlt' not in image_ad.get_attribute('id'):
+                    continue
+                action = ActionChains(browser)
+                hover = action.move_to_element(image_ad)
+                hover.perform()
+
+                print('do hover')
+                time.sleep(random.uniform(3, 6))
+                print('click image id')
+                # image_ad.click()
+                hover.key_down(Keys.CONTROL).click().key_up(Keys.CONTROL)
+                hover.perform()
+                time.sleep(random.uniform(7, 20))
+                print('going back')
+                # browser.execute_script("window.history.go(-1)")
+
         for href in hrefs:
             is_page2 = False
             print('find website {}'.format(href))
