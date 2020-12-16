@@ -23,7 +23,7 @@ for proxyMeta in ip_addresses:
         # proxyMeta = '127.0.0.1:7890'
         ip = proxyMeta.split(':')[0]
 
-        title = 'Topical Anesthetic Tattoo Numbing Cream 10g for Tattoos Semi Permanent US 3-6 Working Days'
+        title = 'Topical Anesthetic Ointment Gel 10g for Tattoos Green'
         webdriver.DesiredCapabilities.FIREFOX['proxy'] = {
             "httpProxy": proxyMeta,
             "ftpProxy": proxyMeta,
