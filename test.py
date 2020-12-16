@@ -60,8 +60,15 @@ for proxyMeta in ip_addresses:
                     print('clicked {} times'.format(success))
                     break
                 else:
-                    next_element = browser.find_element_by_css_selector('.a-last > a:nth-child(1)')
+                    next_elements = browser.find_elements_by_css_selector('.a-last > a:nth-child(1)')
+                    if len(next_elements) < 1:
+                        next_elements = browser.find_elements_by_css_selector('.a-last > a')
+                        if len(next_elements) < 1:
+                            print('not found')
+                            time.sleep(random.uniform(5, 8))
+                            break
 
+                    next_element = next_elements[0]
                     print("go to next page")
                     next_element.click()
                     time.sleep(random.uniform(5, 8))
