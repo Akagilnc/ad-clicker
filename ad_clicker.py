@@ -12,7 +12,7 @@ hrefs = ['https://tktxusshop.com/,http://www.tktxusshop.com/',
          'https://tknumb.com/',
          'https://tk-tx.com/']
 fireFoxOptions = webdriver.FirefoxOptions()
-fireFoxOptions.headless = True
+fireFoxOptions.headless = False
 # chrome_options = webdriver.ChromeOptions()
 # chrome_options.add_argument('--proxy-server={}'.format("2001:470:1:518::c928:63a6:443"))
 
