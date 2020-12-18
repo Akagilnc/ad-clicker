@@ -104,7 +104,7 @@ for x in range(120):
         browser.set_window_size(1920, 1080)
         browser.save_screenshot("{}_screenshot.png".format(ip))
         browser.close()
-        time.sleep(random.uniform(360, 400))
+        time.sleep(random.uniform(150, 200))
     finally:
         print('clicked {} times'.format(str(i)))
         browser.quit()
