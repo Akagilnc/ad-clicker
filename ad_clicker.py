@@ -50,6 +50,7 @@ for x in range(120):
         browser.implicitly_wait(10)
         print('open google')
         browser.get(targetUrl)
+        time.sleep(random.uniform(3, 6))
         search_input_element = browser.find_element_by_css_selector('.gLFyf')
         agree_click(browser)
         time.sleep(random.uniform(2, 15))
