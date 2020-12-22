@@ -87,7 +87,7 @@ for proxyMeta in ip_addresses:
             search_input_element.send_keys(letter)
             time.sleep(random.uniform(0.2, 3))
         search_input_element.send_keys(Keys.ENTER)
-        time.sleep(random.uniform(10, 250))
+        time.sleep(random.uniform(3, 8))
         #
         agree_click(browser)
         # click image ads
@@ -127,14 +127,14 @@ for proxyMeta in ip_addresses:
                 browser.back()
             print('finished with {} with {}'.format(proxyMeta, href))
 
-        time.sleep(2)
+        time.sleep(random.uniform(5, 18))
 
         if not is_clicked:
             not_found_list.append(proxyMeta + '\n')
             browser.set_window_size(1920, 1080)
             browser.save_screenshot("{}_not_found.png".format(ip))
         browser.close()
-        time.sleep(random.uniform(15, 50))
+        time.sleep(random.uniform(220, 280))
     except Exception as inst:
         print(type(inst))
         print(inst)
