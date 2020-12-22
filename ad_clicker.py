@@ -18,7 +18,7 @@ hrefs = ['https://tktxinuk.com/',
 fireFoxOptions = webdriver.FirefoxOptions()
 fireFoxOptions.headless = False
 profile = webdriver.FirefoxProfile()
-profile.set_preference("permissions.default.image", 2)
+# profile.set_preference("permissions.default.image", 2)
 
 
 # chrome_options = webdriver.ChromeOptions()
