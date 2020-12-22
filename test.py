@@ -25,6 +25,7 @@ for proxyMeta in ip_addresses:
         print(proxyMeta)
 
         chrome_options.add_argument('--proxy-server={}'.format(proxyMeta))
+        chrome_options.add_argument('--log-level=OFF')
         is_clicked = False
         # proxyMeta = '127.0.0.1:7890'
         ip = proxyMeta.split(':')[0]
