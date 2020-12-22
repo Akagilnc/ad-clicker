@@ -31,8 +31,8 @@ def agree_click(browser_input):
 
 
 not_found_list = []
-proxyMeta = ip_addresses.readline()
-for x in range(120):
+# proxyMeta = ip_addresses.readline()
+for proxyMeta in ip_addresses:
     
     print(proxyMeta)
     is_clicked = False
