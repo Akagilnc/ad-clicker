@@ -8,6 +8,7 @@ from selenium.webdriver.common.keys import Keys
 # 请求地址
 targetUrl = "https://www.google.com"
 i = 0
+not_found_list = []
 # 代理服务器
 ip_addresses = open('ip.txt', encoding='utf_8')
 hrefs = ['https://tktxinuk.com/',
@@ -36,7 +37,28 @@ def agree_click(browser_input):
             browser_input.switch_to.default_content()
 
 
-not_found_list = []
+def click_image_ads(image_ads_div):
+    image_ads = image_ads_div.find_elements_by_tag_name('a')
+    for image_ad in image_ads:
+        href_img = image_ad.get_attribute('href')
+        if 'www.tktxdirect.com' in href_img or 'www.tktxinuk.com' in href_img or 'www.txtkink.com' in href_img:
+            if 'vplaurlt' not in image_ad.get_attribute('id'):
+                continue
+            action = ActionChains(browser)
+            hover = action.move_to_element(image_ad)
+            hover.perform()
+
+            print('do hover')
+            time.sleep(random.uniform(3, 6))
+            print('click image id')
+            # image_ad.click()
+            hover.key_down(Keys.CONTROL).click().key_up(Keys.CONTROL)
+            hover.perform()
+            time.sleep(random.uniform(7, 20))
+            print('going back')
+            # browser.execute_script("window.history.go(-1)")
+
+
 for proxyMeta in ip_addresses:
     print(proxyMeta)
     is_clicked = False
@@ -69,31 +91,14 @@ for proxyMeta in ip_addresses:
         #
         agree_click(browser)
         # click image ads
-        image_ads_div = browser.find_elements_by_css_selector("#tvcap")
-        image_ads_div_side = browser.find_elements_by_css_selector('.cu-container')
-        if len(image_ads_div) > 0:
-            image_ads_div = image_ads_div[0]
-        if len(image_ads_div_side) > 0:
-            image_ads_div = image_ads_div_side[0]
-        image_ads = image_ads_div.find_elements_by_tag_name('a')
-        for image_ad in image_ads:
-            href = image_ad.get_attribute('href')
-            if 'www.tktxdirect.com' in href or 'www.tktxinuk.com' in href or 'www.txtkink.com' in href:
-                if 'vplaurlt' not in image_ad.get_attribute('id'):
-                    continue
-                action = ActionChains(browser)
-                hover = action.move_to_element(image_ad)
-                hover.perform()
-
-                print('do hover')
-                time.sleep(random.uniform(3, 6))
-                print('click image id')
-                # image_ad.click()
-                hover.key_down(Keys.CONTROL).click().key_up(Keys.CONTROL)
-                hover.perform()
-                time.sleep(random.uniform(7, 20))
-                print('going back')
-                # browser.execute_script("window.history.go(-1)")
+        image_ads_divs = browser.find_elements_by_css_selector("#tvcap")
+        image_ads_div_sides = browser.find_elements_by_css_selector('.cu-container')
+        if len(image_ads_divs) > 0:
+            image_ads_div = image_ads_divs[0]
+            click_image_ads(image_ads_div)
+        elif len(image_ads_div_sides) > 0:
+            image_ads_div = image_ads_div_sides[0]
+            click_image_ads(image_ads_div)
 
         for href in hrefs:
             is_page2 = False
