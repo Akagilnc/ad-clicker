@@ -17,8 +17,6 @@ hrefs = ['https://tktxinuk.com/',
          'http://www.realtktxuk.co.uk/,https://realtktxuk.co.uk/']
 fireFoxOptions = webdriver.FirefoxOptions()
 fireFoxOptions.headless = False
-profile = webdriver.FirefoxProfile()
-# profile.set_preference("permissions.default.image", 2)
 
 
 # chrome_options = webdriver.ChromeOptions()
@@ -51,6 +49,9 @@ for proxyMeta in ip_addresses:
         "proxyType": "MANUAL",
 
     }
+    profile = webdriver.FirefoxProfile()
+    profile.set_preference("permissions.default.image", 2)
+
     browser = webdriver.Firefox(options=fireFoxOptions, firefox_profile=profile)
     try:
         browser.implicitly_wait(10)
