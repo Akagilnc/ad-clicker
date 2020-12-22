@@ -16,7 +16,7 @@ hrefs = ['https://tktxinuk.com/',
          'https://tktxink.com/',
          'http://www.realtktxuk.co.uk/,https://realtktxuk.co.uk/']
 fireFoxOptions = webdriver.FirefoxOptions()
-fireFoxOptions.headless = False
+fireFoxOptions.headless = True
 
 
 # chrome_options = webdriver.ChromeOptions()
