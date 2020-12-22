@@ -14,7 +14,7 @@ chrome_options.headless = True
 chrome_pref = {"profile.default_content_settings": {"images": 2},
                "profile.managed_default_content_settings": {"images": 2}}
 chrome_options.experimental_options["prefs"] = chrome_pref
-
+chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
 success = 0
 
 # proxyMeta = '127.0.0.1:1081'
@@ -25,7 +25,6 @@ for proxyMeta in ip_addresses:
         print(proxyMeta)
 
         chrome_options.add_argument('--proxy-server={}'.format(proxyMeta))
-        chrome_options.add_argument('--log-level=OFF')
         is_clicked = False
         # proxyMeta = '127.0.0.1:7890'
         ip = proxyMeta.split(':')[0]
