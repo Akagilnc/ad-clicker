@@ -7,8 +7,14 @@ from selenium.webdriver.common.keys import Keys
 targetUrl = "https://www.amazon.com"
 i = 0
 ip_addresses = open('ip.txt', encoding='utf_8')
-fireFoxOptions = webdriver.FirefoxOptions()
-fireFoxOptions.headless = True
+# fireFoxOptions = webdriver.FirefoxOptions()
+chrome_options = webdriver.ChromeOptions()
+# fireFoxOptions.headless = True
+chrome_options.headless = True
+chrome_pref = {"profile.default_content_settings": {"images": 2},
+               "profile.managed_default_content_settings": {"images": 2}}
+chrome_options.experimental_options["prefs"] = chrome_pref
+
 success = 0
 
 # proxyMeta = '127.0.0.1:1081'
@@ -17,22 +23,22 @@ for proxyMeta in ip_addresses:
         if i > 100:
             break
         print(proxyMeta)
-        # chrome_options = webdriver.ChromeOptions()
-        # chrome_options.add_argument('--proxy-server={}'.format(proxyMeta))
+
+        chrome_options.add_argument('--proxy-server={}'.format(proxyMeta))
         is_clicked = False
         # proxyMeta = '127.0.0.1:7890'
         ip = proxyMeta.split(':')[0]
 
         title = 'Topical Anesthetic Ointment Gel 10g for Tattoos Green'
-        webdriver.DesiredCapabilities.FIREFOX['proxy'] = {
-            "httpProxy": proxyMeta,
-            "ftpProxy": proxyMeta,
-            "sslProxy": proxyMeta,
-            "proxyType": "MANUAL",
-
-        }
-        browser = webdriver.Firefox(options=fireFoxOptions)
-        # browser = webdriver.Chrome(options=chrome_options)
+        # webdriver.DesiredCapabilities.FIREFOX['proxy'] = {
+        #     "httpProxy": proxyMeta,
+        #     "ftpProxy": proxyMeta,
+        #     "sslProxy": proxyMeta,
+        #     "proxyType": "MANUAL",
+        #
+        # }
+        # browser = webdriver.Firefox(options=fireFoxOptions)
+        browser = webdriver.Chrome(options=chrome_options)
         try:
             browser.implicitly_wait(10)
             print('open amazon')
