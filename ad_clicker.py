@@ -37,7 +37,6 @@ for proxyMeta in ip_addresses:
     print(proxyMeta)
     is_clicked = False
     # proxyMeta = '127.0.0.1:7890'
-    ip = proxyMeta.split(':')[0]
     webdriver.DesiredCapabilities.FIREFOX['proxy'] = {
         "httpProxy": proxyMeta,
         "ftpProxy": proxyMeta,
@@ -97,14 +96,14 @@ for proxyMeta in ip_addresses:
         if not is_clicked:
             not_found_list.append(proxyMeta + '\n')
             browser.set_window_size(1920, 1080)
-            browser.save_screenshot("{}_not_found.png".format(ip))
+            browser.save_screenshot("{}_not_found.png".format(proxyMeta))
         browser.close()
         time.sleep(random.uniform(15, 50))
     except Exception as inst:
         print(type(inst))
         print(inst)
         browser.set_window_size(1920, 1080)
-        browser.save_screenshot("{}_screenshot.png".format(ip))
+        browser.save_screenshot("{}_screenshot.png".format(proxyMeta))
         browser.close()
         time.sleep(random.uniform(150, 200))
     finally:
