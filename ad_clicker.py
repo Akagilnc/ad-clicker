@@ -40,7 +40,7 @@ not_found_list = []
 for proxyMeta in ip_addresses:
     print(proxyMeta)
     is_clicked = False
-    proxyMeta = '127.0.0.1:1081'
+    # proxyMeta = '127.0.0.1:1081'
     ip = proxyMeta.split(':')[0]
     webdriver.DesiredCapabilities.FIREFOX['proxy'] = {
         "httpProxy": proxyMeta,
