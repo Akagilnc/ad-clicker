@@ -12,9 +12,7 @@ hrefs = ['https://tktxusshop.com/,http://www.tktxusshop.com/',
          'https://tknumb.com/',
          'https://tk-tx.com/']
 fireFoxOptions = webdriver.FirefoxOptions()
-fireFoxOptions.headless = False
-profile = webdriver.FirefoxProfile()
-profile.set_preference("permissions.default.image", 2)
+fireFoxOptions.headless = True
 # chrome_options = webdriver.ChromeOptions()
 # chrome_options.add_argument('--proxy-server={}'.format("2001:470:1:518::c928:63a6:443"))
 
@@ -47,6 +45,8 @@ for x in range(120):
         "proxyType": "MANUAL",
 
     }
+    profile = webdriver.FirefoxProfile()
+    profile.set_preference("permissions.default.image", 2)
     browser = webdriver.Firefox(options=fireFoxOptions, firefox_profile=profile)
     try:
         browser.implicitly_wait(10)
