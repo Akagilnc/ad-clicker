@@ -63,7 +63,7 @@ for proxyMeta in ip_addresses:
                     test_elements[0].click()
                     print("finished")
                     success += 1
-                    print('clicked {} times'.format(success))
+                    print('clicked {} times\n\n'.format(success))
                     break
                 else:
                     next_elements = browser.find_elements_by_css_selector('.a-last > a:nth-child(1)')
