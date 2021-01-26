@@ -12,10 +12,14 @@ not_found_list = []
 # 代理服务器
 ip_addresses = open('ip.txt', encoding='utf_8')
 hrefs = ['https://tktxinuk.com/',
+         'https://tktxuknumb.com/',
          'https://www.officialtktx.com/,http://officialtktx.com/',
+         'https://www.tktxofficial.site/,http://www.tktxofficial.site/',
          'https://tktxdirect.com/',
          'https://tktxink.com/',
-         'http://www.realtktxuk.co.uk/,https://realtktxuk.co.uk/']
+         'http://www.realtktxuk.co.uk/,https://realtktxuk.co.uk/',
+         'https://tktx-24hrdelivery.com/',
+         'https://genuinetktx.com/']
 fireFoxOptions = webdriver.FirefoxOptions()
 fireFoxOptions.headless = True
 
